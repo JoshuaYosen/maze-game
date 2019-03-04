@@ -1,5 +1,5 @@
 from vertex import Vertex
-
+#creates graph class to store data
 class Graph:
   def __init__(self):
     self.graph_dict = {}
@@ -12,6 +12,7 @@ class Graph:
     self.graph_dict[to_node.value].add_edge(from_node.value, weight)
 
   def explore(self):
+    #creates function to move along rooms within graph
     print("Exploring the graph....\n")
     #FILL IN EXPLORE METHOD BELOW
     current_room = 'entrance'
@@ -39,6 +40,7 @@ class Graph:
 
 
   def print_map(self):
+    #prints out map
     print("\nMAZE LAYOUT\n")
     for node_key in self.graph_dict:
       print("{0} connected to...".format(node_key))
@@ -49,9 +51,10 @@ class Graph:
     print("")
 
 def build_graph():
+  #initiates graph class
   graph = Graph()
 
-  # MAKE ROOMS INTO VERTICES BELOW...
+  # defines rooms as vertices
   entrance = Vertex("entrance")
   ante_chamber = Vertex("ante-chamber")
   kings_room = Vertex("king's room")
@@ -59,7 +62,7 @@ def build_graph():
   treasure_room = Vertex("treasure room")
 
 
-  # ADD ROOMS TO GRAPH BELOW...
+  # adds rooms
   graph.add_vertex(entrance)
   graph.add_vertex(ante_chamber)
   graph.add_vertex(kings_room)
@@ -68,7 +71,7 @@ def build_graph():
 
 
 
-  # ADD EDGES BETWEEN ROOMS BELOW...
+  # adds edges
   graph.add_edge(entrance, ante_chamber, 7)
   graph.add_edge(entrance, kings_room, 3)
   graph.add_edge(kings_room, ante_chamber, 1)
@@ -78,6 +81,6 @@ def build_graph():
   graph.add_edge(treasure_room, grand_gallery, 4)
 
 
-  # DON'T CHANGE THIS CODE
+
   graph.print_map()
   return graph
